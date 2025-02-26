@@ -1,0 +1,10 @@
+app:
+  name: migration
+  env: sit
+
+db:
+  driver: pg
+  dsn: postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable
+  maxIdleConns: 1
+  maxConns: 1
+  maxLifeTime: 1h

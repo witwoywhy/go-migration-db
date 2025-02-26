@@ -1,0 +1,14 @@
+app:
+  name: migration
+  env: sit
+
+db:
+  driver: mysql
+  host: localhost
+  port: 3306
+  username: mysql
+  password: password
+  database: db
+  maxIdleConns: 1
+  maxConns: 1
+  maxLifeTime: 1h
