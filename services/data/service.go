@@ -24,20 +24,20 @@ func (s *service) Execute(request domain.Request, l logger.Logger) (string, errs
 		infrastructure.DataDriver,
 	)
 	if err != nil {
-		l.Errorf("failed to new instance data pg: %v", err)
-		return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "pg")
+		l.Errorf("failed to new instance data: %v", err)
+		return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "")
 	}
 
 	switch request.Action {
 	case domain.Up:
 		if err := m.Up(); err != nil && err != migrate.ErrNoChange {
-			l.Errorf("pg failed to migrate data up: %v", err)
-			return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "pg")
+			l.Errorf("failed to migrate data up: %v", err)
+			return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "")
 		}
 	case domain.Down:
 		if err := m.Down(); err != nil && err != migrate.ErrNoChange {
-			l.Errorf("pg failed to migrate data down: %v", err)
-			return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "pg")
+			l.Errorf("failed to migrate data down: %v", err)
+			return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "")
 		}
 	}
 
