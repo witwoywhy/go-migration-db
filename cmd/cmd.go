@@ -2,9 +2,10 @@ package cmd
 
 import (
 	"flag"
-	domain "go-migration-db/domain/db"
-	"go-migration-db/services/data"
-	"go-migration-db/services/schema"
+
+	domain "github.com/witwoywhy/go-migration-db/domain/db"
+	"github.com/witwoywhy/go-migration-db/services/data"
+	"github.com/witwoywhy/go-migration-db/services/schema"
 
 	"github.com/google/uuid"
 	"github.com/witwoywhy/go-cores/apps"

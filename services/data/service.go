@@ -1,9 +1,10 @@
 package data
 
 import (
-	domain "go-migration-db/domain/db"
-	"go-migration-db/infrastructure"
 	"net/http"
+
+	domain "github.com/witwoywhy/go-migration-db/domain/db"
+	"github.com/witwoywhy/go-migration-db/infrastructure"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/witwoywhy/go-cores/errs"

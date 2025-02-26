@@ -1,4 +1,4 @@
-module go-migration-db
+module github.com/witwoywhy/go-migration-db
 
 go 1.22.12
 
