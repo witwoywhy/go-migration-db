@@ -32,13 +32,13 @@ func (s *service) Execute(request domain.Request, l logger.Logger) (string, errs
 
 	switch request.Action {
 	case domain.Up:
-		if err := m.Up(); err != nil {
+		if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 			l.Errorf("pg failed to migrate schema up: %v", err)
 			return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "pg")
 		}
 
 	case domain.Down:
-		if err := m.Down(); err != nil {
+		if err := m.Down(); err != nil && err != migrate.ErrNoChange {
 			l.Errorf("pg failed to migrate schema down: %v", err)
 			return "", errs.NewCustom(http.StatusInternalServerError, errs.Err50002, err.Error(), "pg")
 		}
